@@ -14,7 +14,7 @@ def greedymotifsearch(dna, k, t):
         for j in range(1, t):
             profile = buildprofile(motifs, k)
 
-            motifs.append(profilemostprobable(profile, dna[j], k, i))
+            motifs.append(profilemostprobable(profile, dna[j], k))
 
         if score(motifs) < score(bestmotifs):
             bestmotifs = motifs.copy()
@@ -43,7 +43,7 @@ def buildprofile(motifs, k):
 
 
 # return the kmer with the highest probability given the profile
-def profilemostprobable(profile, dna, k, index):
+def profilemostprobable(profile, dna, k):
     maxprob = -1
     probable = []
 
@@ -109,8 +109,8 @@ if __name__ == '__main__':
     with open(filename) as f:
         dna = f.read().splitlines()
 
-    x = readdna(dna, k, t)
+    x = readdna(dna,
 
-    for i in greedymotifsearch(x, k, t):
+    for i in range(greedymotifsearch(x, k, t)):
         print(i)
 
