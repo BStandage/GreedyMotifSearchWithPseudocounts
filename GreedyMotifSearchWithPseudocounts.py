@@ -111,6 +111,6 @@ if __name__ == '__main__':
 
     x = readdna(dna,
 
-    for i in range(greedymotifsearch(x, k, t)):
+    for i in greedymotifsearch(x, k, t):
         print(i)
 
